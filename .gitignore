@@ -1,0 +1,19 @@
+# Unity
+Library/
+Temp/
+obj/
+
+# IDE
+.vscode/
+.gradle/
+.vs/
+
+# NatCorder
+Assets/NatSuite/
+Assets/NatSuite.meta
+
+# Recordings
+recording_*
+
+# Misc
+.DS_Store
