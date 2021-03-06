@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{91f054e7-22a6-271d-8311-9ff1b3b40c3a}</ProjectGuid>
+    <ProjectGuid>{0f61cfc4-92b2-27e0-7fc1-3fbcf1509838}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>NatSuite.Recorders</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -36,14 +36,24 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\ARCam.cs" />
-     <Compile Include="Assets\NatSuite\Examples\Giffy\Giffy.cs" />
-     <Compile Include="Assets\NatSuite\Examples\Karaoke\Karaoke.cs" />
-     <Compile Include="Assets\NatSuite\Examples\ReplayCam\CameraPreview.cs" />
-     <Compile Include="Assets\NatSuite\Examples\ReplayCam\RecordButton.cs" />
-     <Compile Include="Assets\NatSuite\Examples\ReplayCam\ReplayCam.cs" />
-     <Compile Include="Assets\NatSuite\Examples\WebCam\WebCam.cs" />
-     <None Include="Assets\NatSuite\Examples\ReplayCam\UI\CameraPreview.shader" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Clocks\FixedIntervalClock.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Clocks\IClock.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Clocks\RealtimeClock.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\GIFRecorder.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\HEVCRecorder.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\IMediaRecorder.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Inputs\AsyncRenderTextureInput.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Inputs\AudioInput.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Inputs\CameraInput.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Inputs\RenderTextureInput.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Inputs\SyncRenderTextureInput.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Internal\Bridge.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Internal\NativeRecorder.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\Internal\Utility.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\JPGRecorder.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\MP4Recorder.cs" />
+     <Compile Include="Assets\NatSuite\NatCorder\Runtime\WAVRecorder.cs" />
+     <None Include="Assets\NatSuite\NatCorder\Runtime\NatSuite.Recorders.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -220,6 +230,21 @@
     </Reference>
     <Reference Include="UnityEditor">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+        <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+        <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.OSXStandalone.Extensions">
+        <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+        <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+        <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -572,150 +597,14 @@
     <Reference Include="mscorlib">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.XR.Management">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARKit">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Subsystem.Registration">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Runtime">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARSubsystems">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARSubsystems.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARCore">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARFoundation.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Path.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARFoundation">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.XR.ARCore.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="PsdPlugin">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.Management.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEngineBridge.001">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Runtime">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.SpatialTracking">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARKit.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="NatSuite.Rendering">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/NatSuite.Rendering.dll</HintPath>
-    </Reference>
-    <Reference Include="NatSuite.Recorders.Extensions">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/NatSuite.Recorders.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="NatSuite.Sharing.Runtime">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/NatSuite.Sharing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>/Users/yusuf/Documents/Projects/NatCorder-ARFoundation-Integration/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NatSuite.Recorders.csproj">
-      <Project>{0f61cfc4-92b2-27e0-7fc1-3fbcf1509838}</Project>
-      <Name>NatSuite.Recorders</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

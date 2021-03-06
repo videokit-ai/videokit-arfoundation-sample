@@ -9,5 +9,9 @@ EditorBuildSettings:
     path: Assets/ARCam.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 4036970b48944468bb14cab09a60c1b1,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: b5b1893b331b647a083148e6e9600d73,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 49b19960939034e139c846bff5e7395d,
       type: 2}

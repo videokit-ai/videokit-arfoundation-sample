@@ -6,7 +6,7 @@ This is an example project which integrates the NatCorder video recording API wi
 ## Requirements
 - Unity 2019.2+
 - ARFoundation 4.0+
-- NatCorder 1.7+
+- NatCorder 1.8+
 
 ## Setup Instructions
 - Download and open the project in Unity.
