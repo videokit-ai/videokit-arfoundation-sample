@@ -1,25 +1,28 @@
 {
   "dependencies": {
-    "com.natsuite.natrender": {
-      "version": "git+https://github.com/natsuite/NatRender",
-      "depth": 0,
-      "source": "git",
+    "api.natsuite.natrender": {
+      "version": "1.0.2",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {},
-      "hash": "282cbab2f19929905ede3d996a1ab9f5baee5fc7"
+      "url": "https://registry.npmjs.com"
     },
-    "com.natsuite.natshare": {
-      "version": "git+https://github.com/natsuite/NatShare",
+    "api.natsuite.natshare": {
+      "version": "1.2.5",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {},
-      "hash": "46e0ec009f8a9833e3e88881e934fa6fcce43beb"
+      "url": "https://registry.npmjs.com"
     },
-    "com.natsuite.ncpx": {
-      "version": "git+https://github.com/natsuite/NatCorder-Performance-Extensions",
+    "api.natsuite.ncpx": {
+      "version": "0.0.2",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "ec68df2402485033215c25bb791405f501619d56"
+      "source": "registry",
+      "dependencies": {
+        "api.natsuite.natrender": "1.0.2",
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://registry.npmjs.com"
     },
     "com.unity.2d.animation": {
       "version": "3.2.5",
@@ -74,13 +77,13 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "3.0.14",
+      "version": "3.0.15",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
-        "com.unity.2d.common": "2.0.2",
-        "com.unity.2d.path": "2.0.6"
+        "com.unity.2d.common": "2.1.0",
+        "com.unity.2d.path": "2.1.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -112,11 +115,20 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "1.1.4",
+      "version": "1.2.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.ide.visualstudio": {
+      "version": "2.0.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.9"
       },
       "url": "https://packages.unity.com"
     },
@@ -128,7 +140,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
-      "version": "1.1.0",
+      "version": "1.2.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -144,7 +156,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.20",
+      "version": "1.1.24",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -155,7 +167,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "2.0.1",
+      "version": "2.1.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -164,10 +176,15 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.2.14",
+      "version": "1.2.18",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.modules.director": "1.0.0",
+        "com.unity.modules.animation": "1.0.0",
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.particlesystem": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ugui": {
@@ -180,39 +197,39 @@
       }
     },
     "com.unity.xr.arcore": {
-      "version": "4.1.5",
+      "version": "4.1.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.arsubsystems": "4.1.5",
+        "com.unity.xr.arsubsystems": "4.1.7",
         "com.unity.xr.management": "4.0.1",
         "com.unity.modules.androidjni": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arfoundation": {
-      "version": "4.1.5",
+      "version": "4.1.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.arsubsystems": "4.1.5",
+        "com.unity.xr.arsubsystems": "4.1.7",
         "com.unity.xr.management": "4.0.1"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arkit": {
-      "version": "4.1.5",
+      "version": "4.1.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0",
-        "com.unity.xr.arsubsystems": "4.1.5",
+        "com.unity.xr.arsubsystems": "4.1.7",
         "com.unity.xr.management": "4.0.1"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arsubsystems": {
-      "version": "4.1.5",
+      "version": "4.1.7",
       "depth": 1,
       "source": "registry",
       "dependencies": {

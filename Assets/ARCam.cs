@@ -1,12 +1,11 @@
 /* 
 *   NatCorder ARFoundation Integration
-*   Copyright (c) 2021 Yusuf Olokoba
+*   Copyright (c) 2021 Yusuf Olokoba.
 */
 
 namespace NatSuite.Examples {
 
     using UnityEngine;
-    using UnityEngine.UI;
     using NatSuite.Recorders;
     using NatSuite.Recorders.Clocks;
     using NatSuite.Recorders.Inputs;
@@ -32,12 +31,14 @@ namespace NatSuite.Examples {
             // Create recorder and camera input
             var clock = new RealtimeClock();
             recorder = new MP4Recorder(videoWidth, videoHeight, 30);
-            cameraInput = new CameraInput(recorder, clock, videoCamera);
-            // Attach an optimized frame input to the camera input for better performance
-            if (Application.platform == RuntimePlatform.Android)
-                cameraInput.frameInput = new GLESRenderTextureInput(recorder, multithreading: true);
-            else if (Application.platform ==  RuntimePlatform.IPhonePlayer)
-                cameraInput.frameInput = new MTLRenderTextureInput(recorder, multithreading: true);
+            // On Android, create an optimized texture input for better performance
+            if (Application.platform == RuntimePlatform.Android) {
+                var textureInput = new GLESTextureInput(recorder, multithreading: true);
+                cameraInput = new CameraInput(textureInput, clock, videoCamera);
+            }
+            // Otherwise create the camera input directly
+            else
+                cameraInput = new CameraInput(recorder, clock, videoCamera);
         }
 
         public async void StopRecording () {

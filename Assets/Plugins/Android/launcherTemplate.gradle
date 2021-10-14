@@ -30,7 +30,7 @@ dependencies {
 android {
     compileSdkVersion **APIVERSION**
     buildToolsVersion '**BUILDTOOLS**'
-    ndkVersion "21.1.6352462"
+    // ndkVersion "19.0.5232133"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
