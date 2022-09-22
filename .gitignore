@@ -8,9 +8,10 @@ obj/
 .gradle/
 .vs/
 
-# NatCorder
-Assets/NatSuite/
-Assets/NatSuite.meta
+# NatML
+Assets/NatML/
+Assets/NatML.meta
+ProjectSettings/NatMLHub.asset
 
 # Recordings
 recording_*

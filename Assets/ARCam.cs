@@ -1,14 +1,14 @@
 /* 
 *   NatCorder ARFoundation Integration
-*   Copyright (c) 2021 Yusuf Olokoba.
+*   Copyright (c) 2022 NatML Inc. All Rights Reserved.
 */
 
-namespace NatSuite.Examples {
+namespace NatML.Examples {
 
     using UnityEngine;
-    using NatSuite.Recorders;
-    using NatSuite.Recorders.Clocks;
-    using NatSuite.Recorders.Inputs;
+    using NatML.Recorders;
+    using NatML.Recorders.Clocks;
+    using NatML.Recorders.Inputs;
     using NatSuite.Sharing;
 
     public sealed class ARCam : MonoBehaviour {
@@ -31,14 +31,7 @@ namespace NatSuite.Examples {
             // Create recorder and camera input
             var clock = new RealtimeClock();
             recorder = new MP4Recorder(videoWidth, videoHeight, 30);
-            // On Android, create an optimized texture input for better performance
-            if (Application.platform == RuntimePlatform.Android) {
-                var textureInput = new GLESTextureInput(recorder, multithreading: true);
-                cameraInput = new CameraInput(textureInput, clock, videoCamera);
-            }
-            // Otherwise create the camera input directly
-            else
-                cameraInput = new CameraInput(recorder, clock, videoCamera);
+            cameraInput = new CameraInput(recorder, clock, videoCamera);
         }
 
         public async void StopRecording () {
